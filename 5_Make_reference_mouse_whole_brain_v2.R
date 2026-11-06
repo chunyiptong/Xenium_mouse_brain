@@ -290,6 +290,6 @@ seurat_obj[["umap"]] <- CreateDimReducObject(
 
 DimPlot(seurat_obj, reduction="umap", group.by="custom_class", label=T) -> p_umap
 ggplot2::ggsave(plot=p_umap, filename="~/Desktop/Research/Analysis/spatial_transcriptome/figures/wmb_umap.png")
-ggplot2::ggsave(plot=p_umap, filename="~/Desktop/Research/Analysis/spatial_transcriptome/figures/wmb_umap.pdf")
+ggplot2::ggsave(plot=p_umap, filename="~/Desktop/Research/Analysis/spatial_transcriptome/figures/wmb_umap.pdf") #Figure S2A
 
 save(seurat_obj, file="~/Desktop/Research/Analysis/spatial_transcriptome/sc/segmented/mapmycells/raw_data/expression_matrices/wmb_merged_ref_sc.rda")

@@ -551,7 +551,7 @@ df_plot %>%
   geom_col(fill = "red") + 
   theme_classic() + 
   xlab("Number of interactions") + 
-  ggtitle("CT8") -> p1
+  ggtitle("CT8") -> p1 #Figure 5C
 
 netVisual_heatmap(cellchat_CT20, measure = "count", color.heatmap = "Blues", slot.name = "net")
 netVisual_heatmap_custom(cellchat_CT20, measure = "count", color.heatmap = "Reds", slot.name = "net", heatmap.max = 60)
@@ -583,7 +583,7 @@ df_plot %>%
   geom_col(fill = "blue") + 
   theme_classic() + 
   xlab("Number of interactions") + 
-  ggtitle("CT20") -> p2
+  ggtitle("CT20") -> p2 #Figure 5C
 
 rbind(
 p1$data %>% as.data.frame() %>% dplyr::select(interaction, communication) %>% dplyr::mutate(timepoint = "CT8"),
@@ -599,18 +599,18 @@ p2$data %>% as.data.frame() %>% dplyr::select(interaction, communication) %>% dp
       theme_classic() + 
       xlab("number of communications")
   } -> p3
-ggsave(plot = p3, width = 5.75, height = 4.94, filename = "~/Downloads/communication_count_barplot.pdf")
+ggsave(plot = p3, width = 5.75, height = 4.94, filename = "~/Downloads/communication_count_barplot.pdf") #Figure 5C
 
 list(
 `CT8 (LR signaling pathways)` = cellchat_CT8@netP$pathways,
 `CT20 (LR signaling pathways)` = cellchat_CT20@netP$pathways
-) %>% ggvenn::ggvenn(fill_color = c("#e37365", "#4cb3bb"), text_size = 8)
+) %>% ggvenn::ggvenn(fill_color = c("#e37365", "#4cb3bb"), text_size = 8) #Figure S12A
 
 list(
   `CT8 (LRs)` = cellchat_CT8@net$LRs,
   `CT20 (LRs)` = cellchat_CT20@net$LRs
 ) %>% ggvenn::ggvenn(fill_color = c("#e37365", "#4cb3bb"), text_size = 6) -> p4
-ggsave(plot = p4, width = 5.75, height = 4.94, filename = "~/Downloads/communication_count_venn.pdf")
+ggsave(plot = p4, width = 5.75, height = 4.94, filename = "~/Downloads/communication_count_venn.pdf") #Figure 5D
 
 #GABA ----
 subsetCommunication(cellchat_CT8, slot.name = "netP", signaling = "GABA-A") 
@@ -709,7 +709,7 @@ list(
   }
   return(p)
 }) %>% patchwork::wrap_plots(.,ncol = 2, guides = "collect") -> p_GABA_heatmap
-ggsave(plot = p_GABA_heatmap, width = 8.96, height = 5.45, filename = "~/Downloads/GABA_A_B.heatmap_V2.pdf")
+ggsave(plot = p_GABA_heatmap, width = 8.96, height = 5.45, filename = "~/Downloads/GABA_A_B.heatmap_V2.pdf") #Figure 5E
 
 plot_violin(signaling = "GABA-A", pval_ = 0.01) -> p
 plot_violin(signaling = "GABA-B", pval_ = 0.01) -> p1
@@ -757,7 +757,7 @@ c(6:7) %>%
   patchwork::plot_annotation(title = "GABA-B LR pathway (receptors)") -> p_GABA_3
 
 patchwork::wrap_plots(p_GABA_1, p_GABA_2, p_GABA_3, ncol = 1, heights = c(3,4,2)) -> p
-ggsave(plot = p, filename = "~/Downloads/GABA_LR_pathway_gene_expression.pdf", height = 7.68, width = 6.90)
+ggsave(plot = p, filename = "~/Downloads/GABA_LR_pathway_gene_expression.pdf", height = 7.68, width = 6.90) #Figure 5F
 
 c(1, 4:6, 11, 10, 12) %>% 
   purrr::map(function(i){
@@ -1023,7 +1023,7 @@ p +
     label = "p.format"
   ) -> p_GABA_B
 
-patchwork::wrap_plots(p_GABA_A, p_GABA_B, ncol = 2, guides = "collect")
+patchwork::wrap_plots(p_GABA_A, p_GABA_B, ncol = 2, guides = "collect") #Figure 5G
   
 
 
@@ -1116,7 +1116,7 @@ list(
 #    print(i)
 #  }
   return(p)
-}) %>% patchwork::wrap_plots(.,ncol = 2, guides = "collect") #-> p_GABA_heatmap
+}) %>% patchwork::wrap_plots(.,ncol = 2, guides = "collect") -> p_Vip_heatmap #Figure 5H
 
 plot_violin(signaling = "VIP", pval_ = 0.01) -> p
 c(1,3) %>% 
@@ -1131,7 +1131,7 @@ c(1,3) %>%
     } -> p
     return(p)
   }) %>% patchwork::wrap_plots(., ncol = 1, guides = "collect") + 
-  patchwork::plot_annotation(title = "VIP LR pathway (gene expression)") -> p_violin_VIP
+  patchwork::plot_annotation(title = "VIP LR pathway (gene expression)") -> p_violin_VIP #figure 5I
 ggsave(plot = p_violin_VIP, filename = "~/Downloads/VIP_LR_pathway_gene_expression.pdf", width = 7.34, height = 4.14)
 
 
@@ -1175,7 +1175,7 @@ p +
     method.args = list(alternative = "greater"),
     paired = T,
     label = "p.format"
-  ) -> p_VIP
+  ) -> p_VIP #Figure 5J
 
 rbind(
   netAnalysis_contribution(cellchat_CT8, signaling = "VIP", thresh = 0.01)$data %>% dplyr::mutate(timepoint = "CT8"),
@@ -1461,7 +1461,7 @@ DimPlot(xenium_obj_filter_GABA_integrated, group.by = "seurat_clusters", label =
       "3" = "GRP_GABA"
     )
   ) -> p_UMAP
-ggsave(plot = p_UMAP, filename = "~/Downloads/GABA_subtype_umap.pdf", width = 6.58, height = 4.16)
+ggsave(plot = p_UMAP, filename = "~/Downloads/GABA_subtype_umap.pdf", width = 6.58, height = 4.16) #Figure B
 
 rm(list=ls())
 gc()
@@ -1541,7 +1541,7 @@ rankNet(
   mode = "comparison",
   stacked = T 
 ) -> p
-ggsave(plot = p, filename = "~/Downloads/cellchat_ranknet.pdf", width = 8.33, height = 6.59)
+ggsave(plot = p, filename = "~/Downloads/cellchat_ranknet.pdf", width = 8.33, height = 6.59) #Figure S12B
 
 
 rankNet(

@@ -681,9 +681,9 @@ DEG_plot(gene_ = "Myh9") -> p_2
 patchwork::wrap_plots(p_1, p_2, ncol = 2, widths = c(2,1)) -> p_Myh9
 
 #Cacna1g
-map_feature_plot(gene_ = "Cacna1g") -> p
+map_feature_plot(gene_ = "Cacna1g") -> p #Figure S11A
 patchwork::wrap_plots(p[[1]], p[[6]], ncol = 2, guides = "collect") -> p_1
-DEG_plot(gene_ = "Cacna1g") -> p_2
+DEG_plot(gene_ = "Cacna1g") -> p_2 #Figure S11A
 patchwork::wrap_plots(p_1, p_2, ncol = 2, widths = c(2,1)) -> p_Cacna1g
 
 #Smarcc1

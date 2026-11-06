@@ -69,7 +69,7 @@ unique(rpca_cell_annotation$predicted.id) %>%
   }) -> p_list_score
 length(p_list_score)
 patchwork::wrap_plots(p_list_score, ncol = 5) -> p
-ggsave(plot = p, filename = "~/Downloads/rpca_cell_annotation_wmb_score_histogram.pdf", width = 15.28, height = 2.47)
+ggsave(plot = p, filename = "~/Downloads/rpca_cell_annotation_wmb_score_histogram.pdf", width = 15.28, height = 2.47) #Figure S2D
 
 (rpca_cell_annotation %>% dplyr::filter(predicted.id.score >= 0.8) %>% nrow())/
 (rpca_cell_annotation %>% nrow())

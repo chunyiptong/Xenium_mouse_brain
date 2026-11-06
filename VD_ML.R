@@ -517,9 +517,9 @@ draw_VD_MD(gene = "Per2")
 draw_VD_MD(gene = "Lhx1")
 draw_VD_MD_1(gene = "Rgs16")
 
-draw_VD_MD_2(gene = "Cacna1g", spline_df = 3)
-draw_VD_MD_2(gene = "Kdm6a", spline_df = 3)
-draw_VD_MD_2(gene = "Vhl", spline_df = 3)
+draw_VD_MD_2(gene = "Cacna1g", spline_df = 3) #Figure S11A
+draw_VD_MD_2(gene = "Kdm6a", spline_df = 3) #Figure S11B
+draw_VD_MD_2(gene = "Vhl", spline_df = 3) #Figure S11C
 
 draw_VD_MD_2(gene = "Per2", spline_df = 4) #Figure 4C
 draw_VD_MD_2(gene = "Lhx1", spline_df = 5) #Figure 4E

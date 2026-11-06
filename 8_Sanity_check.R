@@ -40,7 +40,7 @@ unique(xenium_obj_filtered@meta.data$orig.ident) %>%
     
   }) -> p_list
 patchwork::wrap_plots(p_list, ncol = 3, guides = "collect") -> p
-ggsave(plot = p, filename = "~/Dropbox/Spatial_transcriptomics_new/github/plots/xenium_coronal_celltypes.pdf", height = 6.82, width = 14.4)
+ggsave(plot = p, filename = "~/Dropbox/Spatial_transcriptomics_new/github/plots/xenium_coronal_celltypes.pdf", height = 6.82, width = 14.4) #Figure S2C
 rm(p, p_list);gc()
 
 #Compare label transfer with mapmycells result

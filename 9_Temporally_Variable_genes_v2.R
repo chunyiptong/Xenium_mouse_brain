@@ -360,7 +360,7 @@ list(
 
 patchwork::wrap_plots(p_list, nrow = 1, guides = "collect") -> p_composition #illustrate cell-type composition in SCN, SCN_cell, SCN_core, PVN and SON
 ggsave(plot = p_composition, filename = "~/Dropbox/Spatial_transcriptomics_new/github/plots/regional_marker_genes_cell_composition_v2.pdf", 
-       width = 15.42, height = 4.99)
+       width = 15.42, height = 4.99) #Figure S6
 
 #2. Identify TVGs in SCN, PVN and SON ----
 library(muscat)
@@ -787,7 +787,7 @@ unique(DEG_df$region) %>%
       theme_classic()
   }) %>% patchwork::wrap_plots(ncol = 3, guides = "collect") -> p
 
-ggsave("~/Dropbox/Spatial_transcriptomics_new/github/plots/SCN_SON_PVN_DEG_barplots.pdf", plot = p, width = 12.52, height = 6.88)
+ggsave("~/Dropbox/Spatial_transcriptomics_new/github/plots/SCN_SON_PVN_DEG_barplots.pdf", plot = p, width = 12.52, height = 6.88) #Figure s7B Figure s7D
 
 gene_list_for_GO = list()
 unique(DEG_df$region) %>%
@@ -1000,7 +1000,7 @@ list(
       })
   }) -> p_list_2
 
-pdf("~/Dropbox/Spatial_transcriptomics_new/github/plots/SCN_PVN_SON_GO_analysis.pdf", width = 15.5, height = 6.2)
+pdf("~/Dropbox/Spatial_transcriptomics_new/github/plots/SCN_PVN_SON_GO_analysis.pdf", width = 15.5, height = 6.2) #Figure S8A
 p_list_2
 dev.off()
 
@@ -1072,7 +1072,7 @@ DEG_df %>% dplyr::filter(region == "SCN", compartment == "cell", cluster_id == "
   ggtitle("Neuro plasticity - SCN GABAergic") -> p_neuro_connectivity_SCN_GABAergic
 
 patchwork::wrap_plots(p_circadian_SCN_GABAergic, p_neurotrophin_SCN_GABAergic, p_neuro_connectivity_SCN_GABAergic, ncol = 3, guides = "collect") -> p
-ggsave("~/Dropbox/Spatial_transcriptomics_new/github/plots/SCN_GABAergic_GO.pdf", p, width = 15.4, height = 7.01)
+ggsave("~/Dropbox/Spatial_transcriptomics_new/github/plots/SCN_GABAergic_GO.pdf", p, width = 15.4, height = 7.01) #Figure S8B
 
 p_list_2$SCN$Astrocytes[[2]]$data %>% 
   dplyr::filter(grepl("circadian|rhythm", Description, ignore.case = T)) %>% 
@@ -1776,7 +1776,7 @@ df_plot %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(x = "Sample", y = "Gene", color = "Expression (scaled)", size = "Non-zero proportion (%)") -> p
 
-ggsave(plot = p, filename = "~/Dropbox/Spatial_transcriptomics_new/github/plots/PVN_clock_genes_expression_non_zero_prop.pdf", width = 11.93, height = 5.33)
+ggsave(plot = p, filename = "~/Dropbox/Spatial_transcriptomics_new/github/plots/PVN_clock_genes_expression_non_zero_prop.pdf", width = 11.93, height = 5.33) #Figure S7A
 
 #12. SON dot plot ----
 rm(list=ls())
@@ -1870,7 +1870,7 @@ df_plot %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(x = "Sample", y = "Gene", color = "Expression (scaled)", size = "Non-zero proportion (%)") -> p
 
-ggsave(plot = p, filename = "~/Dropbox/Spatial_transcriptomics_new/github/plots/SON_clock_genes_expression_non_zero_prop.pdf", width = 11.93, height = 5.33)
+ggsave(plot = p, filename = "~/Dropbox/Spatial_transcriptomics_new/github/plots/SON_clock_genes_expression_non_zero_prop.pdf", width = 11.93, height = 5.33) #Figure S7C
 
 
 # 13. Compare Xenium and scRNA-seq (SCN) ----
